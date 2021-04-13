@@ -1,24 +1,21 @@
 
+package window;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+
 import java.util.Hashtable;
+
+import calculator.Calculator;
+import symbol.Symbol;
 
 /**
  *
  * @author DuongHieu
  */
-public class Window extends JFrame implements ActionListener {
-
-    // private final static int WIDTH = 400;
-    // private final static int HEIGHT = 400;
-
-    private JMenuBar menuBar = new JMenuBar();
-
-    private JMenu editMenu = new JMenu("Edit");
-    private JMenu viewMenu = new JMenu("View");
-    private JMenu helpMenu = new JMenu("Help");
+public class Standard extends JPanel implements ActionListener {
 
     private JPanel textFieldPanel = new JPanel();
     private JTextField textField = new JTextField(21);
@@ -45,40 +42,13 @@ public class Window extends JFrame implements ActionListener {
 
     private Calculator cal = new Calculator();
     
-    public Window() {
-        super("Calculator");
-        // setSize(WIDTH, HEIGHT);
-        setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-        ImageIcon icon = new ImageIcon("src/cal.png");
-        setIconImage(icon.getImage());
-
-        createMenuBar();
+    public Standard() {
         createTextField();
         createButtons();
-
-        getContentPane().setLayout(new BorderLayout(10, 10));
-        getContentPane().add(textFieldPanel, BorderLayout.NORTH);
-        getContentPane().add(buttonsPanel, BorderLayout.CENTER);
-
-        pack();
-    }
-
-    private void createMenuBar() {
-        editMenu.setFont(font);
-        viewMenu.setFont(font);
-        helpMenu.setFont(font);
-
-        editMenu.setMnemonic('E');
-        viewMenu.setMnemonic('V');
-        helpMenu.setMnemonic('H');
-
-        menuBar.add(editMenu);
-        menuBar.add(viewMenu);
-        menuBar.add(helpMenu);
-
-        setJMenuBar(menuBar);
+        
+        setLayout(new BorderLayout(10, 10));
+        add(textFieldPanel, BorderLayout.NORTH);
+        add(buttonsPanel, BorderLayout.CENTER);
     }
 
     private void createTextField() {
@@ -214,18 +184,6 @@ public class Window extends JFrame implements ActionListener {
             text += "8";
         } else if (button == numberButtons.get("9")) {
             text += "9";
-        } else if (button == numberButtons.get(Symbol.plus)) {
-            cal.setFirstNumber(text);
-            cal.setOperator(Symbol.plus);
-        } else if (button == numberButtons.get(Symbol.minus)) {
-            cal.setFirstNumber(text);
-            cal.setOperator(Symbol.minus);
-        } else if (button == numberButtons.get(Symbol.multiply)) {
-            cal.setFirstNumber(text);
-            cal.setOperator(Symbol.multiply);
-        } else if (button == numberButtons.get("/")) {
-            cal.setFirstNumber(text);
-            cal.setOperator("/");
         } else if (button == numberButtons.get(".")) {
             if (!text.contains(".")) {
                 if (text.length() == 0) {

@@ -1,4 +1,9 @@
 
+package symbol;
+
+/**
+ * @author DuongHieu
+ */
 public class Symbol {
     public final static String plus = "+";
     public final static String minus = "\u2212";
@@ -7,5 +12,5 @@ public class Symbol {
     public final static String squareRoot = "\u221A";
 
     public final static String plusMinus = "+/" + minus;
-    public final static String squareRootX = "\u221Ax";
+    public final static String squareRootX = squareRoot + "x";
 }

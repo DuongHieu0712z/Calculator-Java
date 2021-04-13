@@ -1,4 +1,6 @@
 
+import window.Window;
+
 /**
  *
  * @author DuongHieu
