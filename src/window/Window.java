@@ -216,6 +216,7 @@ public class Window extends JFrame implements ActionListener, ItemListener {
             case "Standard":
                 setContentPane(standardMode);
                 createViewMenuModeStandard();
+                pack();
                 break;
 
             case "Scientific":
